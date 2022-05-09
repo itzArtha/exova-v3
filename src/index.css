@@ -4,9 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+body, pre {
   margin: 0;
   font-family: 'Poppins', 'Poppins ExtraBold', 'Poppins Light', 'Poppins Medium', 'Poppins Thin', 'Poppins SemiBold', sans-serif;
+}
+p {
+  white-space: pre-line !important;
 }
 
 code {
@@ -50,5 +53,20 @@ code {
 
 ::-webkit-scrollbar-corner {
   background-color: transparent;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.filepond--credits {
+  display: none !important;
 }
 

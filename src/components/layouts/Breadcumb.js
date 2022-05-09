@@ -6,7 +6,7 @@ const Breadcumb = (props) => {
         <i className="fa-solid fa-arrow-left" />
       </Link>
       {props.labels.map((item, i) => (
-        <div>
+        <div key={i}>
           <Link
             to={item.link}
             className={`text-sm cursor-pointer ${

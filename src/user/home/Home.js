@@ -1,16 +1,16 @@
 import Layout from "../../components/layouts/Layout";
-import MainCategory from "../../components/categories/MainCategory";
 import MainTextInput from "../../components/forms/MainTextInput";
 import TextWithIcon from "../../components/badges/TextWithIcon";
-import MainProduct from "../../components/products/MainProduct";
-import MainReview from "../../components/reviews/MainReview";
-import MainComponent from "../../components/partners/MainComponent";
 import MainButton from "../../components/buttons/MainButton";
 import SecondaryButton from "../../components/buttons/SecondaryButton";
+import MainProductList from "../../components/products/MainProductList";
+import MainReviewList from "../../components/reviews/MainReviewList";
+import PartnerList from "../../components/partners/PartnerList";
+import MainCategoryList from "../../components/categories/MainCategoryList";
 
 const Home = () => {
   return (
-    <Layout>
+    <Layout selectedNavLink={"beranda"}>
       <div className="md:ml-32">
         <div className={"grid grid-cols-1 md:grid-cols-5 md:gap-2"}>
           <div className={"block md:hidden"}>
@@ -51,7 +51,7 @@ const Home = () => {
                 Cari nama kegiatan atau freelancer
               </h1>
               <div className="md:w-11/12 w-full">
-                <MainTextInput />
+                <MainTextInput placeholder={"Cari videografer wedding..."} />
               </div>
               <h1 className={"font-medium text-xs text-gray-500 mt-3"}>
                 Pencarian terpopuler: Pernikahan, Liburan, Metatah
@@ -93,11 +93,8 @@ const Home = () => {
           <h1 className={"font-medium text-md text-gray-500 mt-2"}>
             Beberapa kategori dari Exova yang bisa kamu pilih!
           </h1>
-          <div className={"grid grid-cols-2 md:grid-cols-4 gap-4 mt-8"}>
-            <MainCategory />
-            <MainCategory />
-            <MainCategory />
-            <MainCategory />
+          <div>
+            <MainCategoryList categories={["", "", "", ""]} />
           </div>
         </div>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-2 md:my-48 my-24 md:mx-24">
@@ -187,19 +184,17 @@ const Home = () => {
             </div>
             <SecondaryButton label="Lihat semua" />
           </div>
-          <div className="grid md:grid-cols-4 grid-cols-2 gap-2 my-4">
-            <MainProduct />
+          <div className={"mt-12"}>
+            <MainProductList products={[""]} />
           </div>
         </div>
         <div className="mt-20">
           <div className="my-auto text-center">
             <h1 className="font-medium text-2xl">Apa kata mereka?</h1>
           </div>
-          <div className="overflow-x-auto overscroll-contain mt-4">
+          <div className="overflow-x-auto overscroll-contain mt-4 hide-scroll">
             <div className="webkit-inline-box flex grid-cols-2 gap-2">
-              <MainReview />
-              <MainReview />
-              <MainReview />
+              <MainReviewList reviews={["", "", ""]} />
             </div>
           </div>
         </div>
@@ -209,15 +204,11 @@ const Home = () => {
           </div>
           <div className="overflow-x-auto overscroll-contain mt-12">
             <div className="webkit-inline-box flex grid-cols-2 gap-2">
-              <MainComponent
-                image={
-                  "https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/original/logo/2020/09/01/7379dfd8-c9cc-4fb9-896f-6374a766cefc-1598927204969-fab786a46eee63c306f89837093520a4.png"
-                }
-              />
-              <MainComponent
-                image={
-                  "https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/original/logo/2020/09/01/7379dfd8-c9cc-4fb9-896f-6374a766cefc-1598927204969-fab786a46eee63c306f89837093520a4.png"
-                }
+              <PartnerList
+                partnersLogo={[
+                  "https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/original/logo/2020/09/01/7379dfd8-c9cc-4fb9-896f-6374a766cefc-1598927204969-fab786a46eee63c306f89837093520a4.png",
+                  "https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/original/logo/2020/09/01/7379dfd8-c9cc-4fb9-896f-6374a766cefc-1598927204969-fab786a46eee63c306f89837093520a4.png",
+                ]}
               />
             </div>
           </div>
@@ -276,6 +267,7 @@ const Home = () => {
             <img
               className="w-full"
               src={process.env.PUBLIC_URL + "/banners/banner-footer.png"}
+              alt={"Banner footer"}
             />
           </div>
         </div>

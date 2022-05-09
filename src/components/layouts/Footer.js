@@ -60,7 +60,7 @@ const Footer = () => {
                 <div>
                   <h3 className="text-gray-700 font-medium">Lainnya</h3>
                   <a
-                    href="#"
+                    href={"/i/about-us"}
                     className="block mt-2 text-sm font-base text-gray-600 hover:underline"
                   >
                     Tentang kami

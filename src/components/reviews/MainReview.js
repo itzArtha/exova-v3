@@ -1,7 +1,9 @@
-const MainReview = () => {
+import Stars from "./Stars";
+
+const MainReview = (props) => {
   return (
     <>
-      <div className="p-4 my-8 md:w-72 w-full shadow-xl">
+      <div className="p-4 my-8 w-1/3 shadow-md">
         <div className="flex gap-2">
           <div>
             <img
@@ -20,7 +22,9 @@ const MainReview = () => {
           </div>
         </div>
         <div className="mt-4 flex gap-4">
-          <div>starts</div>
+          <div>
+            <Stars starsTotal={5} />
+          </div>
           <div>
             <span className="font-medium text-base">5.0</span>
           </div>

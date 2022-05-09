@@ -1,10 +1,48 @@
 import MainButton from "../buttons/MainButton";
 import { useHistory } from "react-router-dom";
-const MainProduct = () => {
+import { useState } from "react";
+import { toast } from "react-hot-toast";
+const MainProduct = ({ product }) => {
   const history = useHistory();
+  const [isWishlist, setWishlist] = useState(product.isWishlist);
+
+  const handleToast = () => {
+    isWishlist
+      ? toast("Mmm! dah aku hapus ya!", {
+          icon: "💔",
+        })
+      : toast("Aww! udah aku tambah di wishlist ya!", {
+          icon: "❤️",
+          style: {
+            borderRadius: "10px",
+            background: "#3b82f6",
+            color: "#fff",
+          },
+        });
+  };
+
+  const handleWishlist = () => {
+    setWishlist(!isWishlist);
+    handleToast();
+  };
+
   return (
     <>
-      <div>
+      <div className={"relative"}>
+        <div
+          onClick={() => {
+            handleWishlist();
+          }}
+          className={
+            "py-1 px-2 bg-gray-100 rounded-lg absolute right-0 m-2 cursor-pointer"
+          }
+        >
+          <i
+            className={`${
+              isWishlist ? "fa-solid text-red-500" : "fa-regular"
+            } fa-heart`}
+          ></i>
+        </div>
         <div>
           <img
             className="object-cover rounded-t-lg w-full h-48 md:h-72"

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-const MainButton = (props) => {
+
+const DangerButton = (props) => {
   return (
     <>
       <motion.button
@@ -7,11 +8,11 @@ const MainButton = (props) => {
         onClick={props.onClick}
         whileHover={{ scale: 1.05 }}
         disabled={props.disabled}
-        className={`p-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 duration-200 ${props.className}`}
+        className={`p-2 text-white bg-red-500 rounded-lg hover:bg-red-600 duration-200 ${props.className}`}
       >
         {props.label}
       </motion.button>
     </>
   );
 };
-export default MainButton;
+export default DangerButton;

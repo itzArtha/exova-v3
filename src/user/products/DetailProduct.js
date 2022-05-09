@@ -3,13 +3,14 @@ import TextWithIcon from "../../components/badges/TextWithIcon";
 import MainTextInput from "../../components/forms/MainTextInput";
 import MainButton from "../../components/buttons/MainButton";
 import SecondaryButton from "../../components/buttons/SecondaryButton";
-import MainProduct from "../../components/products/MainProduct";
 import MainBadge from "../../components/badges/MainBadge";
 import SecondaryReview from "../../components/reviews/SecondaryReview";
 import MainPricing from "../../components/pricings/MainPricing";
 import Breadcumb from "../../components/layouts/Breadcumb";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import TextWithUnderscore from "../../components/TextWithUnderscore";
+import MainProductList from "../../components/products/MainProductList";
 
 const DetailProduct = () => {
   const [showDetails, setShowDetails] = useState("description");
@@ -80,38 +81,24 @@ const DetailProduct = () => {
           <div className={"col-span-2"}>
             <div>
               <div className={"flex gap-4"}>
-                <div
+                <TextWithUnderscore
                   onClick={() => {
                     setShowDetails("description");
                   }}
-                  className={"cursor-pointer"}
+                  initialValue={showDetails}
+                  textName={"description"}
                 >
-                  <h1
-                    className={`font-medium text-base ${
-                      showDetails === "description"
-                        ? "pb-2 text-black border-b-2 border-blue-500"
-                        : "text-gray-500"
-                    }`}
-                  >
-                    Deskripsi
-                  </h1>
-                </div>
-                <div
+                  Deskripsi
+                </TextWithUnderscore>
+                <TextWithUnderscore
                   onClick={() => {
                     setShowDetails("reviews");
                   }}
-                  className={"cursor-pointer"}
+                  initialValue={showDetails}
+                  textName={"reviews"}
                 >
-                  <h1
-                    className={`font-medium text-base ${
-                      showDetails === "reviews"
-                        ? "pb-2 text-black border-b-2 border-blue-500"
-                        : "text-gray-500"
-                    }`}
-                  >
-                    Ulasan
-                  </h1>
-                </div>
+                  Ulasan
+                </TextWithUnderscore>
               </div>
               <div className={"mt-8"}>
                 {showDetails === "description" ? (
@@ -196,8 +183,8 @@ const DetailProduct = () => {
             </div>
             <SecondaryButton label="Lihat semua" />
           </div>
-          <div className="grid md:grid-cols-4 grid-cols-2 gap-2 my-4">
-            <MainProduct />
+          <div className={"mt-12"}>
+            <MainProductList products={["", ""]} />
           </div>
         </div>
         <div className={"space-x-10 my-16 border-b"} />
@@ -208,8 +195,8 @@ const DetailProduct = () => {
             </div>
             <SecondaryButton label="Lihat semua" />
           </div>
-          <div className="grid md:grid-cols-4 grid-cols-2 gap-2 my-4">
-            <MainProduct />
+          <div className={"mt-12"}>
+            <MainProductList products={["", ""]} />
           </div>
         </div>
       </div>

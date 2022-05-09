@@ -1,4 +1,4 @@
-const MainCategory = () => {
+const MainCategory = ({ category }) => {
   return (
     <div>
       <img
